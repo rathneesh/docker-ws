@@ -11,7 +11,7 @@ pipeline {
         stage('Registry Upload') {
             steps {
                 echo 'Starting docker build'
-                sh '''docker rathneesh/devops-demo:latest
+                sh '''docker push rathneesh/devops-demo:latest
          '''
             }
         }
