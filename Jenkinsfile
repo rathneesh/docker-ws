@@ -1,9 +1,11 @@
 pipeline {
     agent any
     stages {
-        stage('Hello') {
+        stage('Build') {
             steps {
-                echo 'Hello World'
+                echo 'Starting docker build'
+                sh '''docker build 
+         '''
             }
         }
     }
