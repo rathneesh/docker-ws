@@ -8,5 +8,12 @@ pipeline {
          '''
             }
         }
+        stage('Registry Upload') {
+            steps {
+                echo 'Starting docker build'
+                sh '''docker rathneesh/devops-demo:latest
+         '''
+            }
+        }
     }
 }
