@@ -10,14 +10,21 @@ pipeline {
         }
         stage('Registry Upload') {
             steps {
-                echo 'Starting docker build'
+                echo 'Starting registry upload'
                 sh '''docker push rathneesh/devops-demo:${BUILD_NUMBER}
          '''
             }
         }
          stage('pre-prod deployment') {
             steps {
-                echo 'Starting docker build'
+                echo 'Starting pre-prod deployment'
+                sh '''sh deploy.sh pre-prod rathneesh/devops-demo:${BUILD_NUMBER}
+         '''
+            }
+        }
+         stage('prod deployment') {
+            steps {
+                echo 'Starting prod deployment'
                 sh '''sh deploy.sh pre-prod rathneesh/devops-demo:${BUILD_NUMBER}
          '''
             }
