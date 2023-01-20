@@ -15,5 +15,12 @@ pipeline {
          '''
             }
         }
+         stage('pre-prod deployment') {
+            steps {
+                echo 'Starting docker build'
+                sh '''sh deploy.sh pre-prod rathneesh/devops-demo:${BUILD_NUMBER}
+         '''
+            }
+        }
     }
 }
