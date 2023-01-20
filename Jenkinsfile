@@ -11,8 +11,7 @@ pipeline {
         stage('Registry Upload') {
             steps {
                 echo 'Starting registry upload'
-                sh '''docker push rathneesh/devops-demo:${BUILD_NUMBER}
-         '''
+                echo "docker push rathneesh/devops-demo:${BUILD_NUMBER}"
             }
         }
          stage('pre-prod deployment') {
