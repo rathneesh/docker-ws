@@ -12,7 +12,7 @@ fi
 
 if [ "${container_name}" = 'pre-prod' ]
 then
-   docker run -d --name pre-prod -p 81:81 $docker_image
+   docker run -d --name pre-prod -p 80:81 $docker_image
 fi
 
 
