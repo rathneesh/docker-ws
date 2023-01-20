@@ -19,6 +19,8 @@ pipeline {
             steps {
                 echo 'Starting pre-prod deployment'
                 sh '''sh deploy.sh pre-prod rathneesh/devops-demo:${BUILD_NUMBER}
+                echo "pre-prod deployment is successful"
+                echo "Please review the pre-prod environment @ http://139.59.27.4:81/"
 
          '''
             }
@@ -28,6 +30,7 @@ pipeline {
                 input message: 'Do you want to approve the deploy in production?', ok: 'Yes'
                 echo 'Starting prod deployment'
                 sh '''sh deploy.sh prod rathneesh/devops-demo:${BUILD_NUMBER}
+                echo "prod deployment is successful - http://139.59.27.4:80/"
          '''
             }
         }
