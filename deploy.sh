@@ -2,8 +2,6 @@
 container_name=$1
 docker_image=$2
 
-set -x
-
 if [ "$(docker ps -a | grep ${container_name})" ]
 then
          docker stop ${container_name} > /dev/null 2>&1
