@@ -25,7 +25,7 @@ pipeline {
          stage('prod deployment') {
             steps {
                 echo 'Starting prod deployment'
-                sh '''sh deploy.sh pre-prod rathneesh/devops-demo:${BUILD_NUMBER}
+                sh '''sh deploy.sh prod rathneesh/devops-demo:${BUILD_NUMBER}
          '''
             }
         }
