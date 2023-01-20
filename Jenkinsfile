@@ -25,11 +25,7 @@ pipeline {
         }
          stage('prod deployment') {
             steps {
-                 input message: 'User input required', ok: 'Release!',
-                //parameters: [choice(name: 'RELEASE_SCOPE', choices: 'patch\nminor\nmajor', description: 'What is the release scope?')]
-                  input(message: 'Do you want to proceed with prod deployment?', ok: 'Yes', 
-                        parameters: [booleanParam(defaultValue: true, 
-                         description: 'If you like Java, just push the button',name: 'Yes?')])
+                input message: 'Do you want to approve the deploy in production?', ok: 'Yes'
                 echo 'Starting prod deployment'
                 sh '''sh deploy.sh prod rathneesh/devops-demo:${BUILD_NUMBER}
          '''
