@@ -26,7 +26,10 @@ pipeline {
          stage('prod deployment') {
             steps {
                  input message: 'User input required', ok: 'Release!',
-                parameters: [choice(name: 'RELEASE_SCOPE', choices: 'patch\nminor\nmajor', description: 'What is the release scope?')]
+                //parameters: [choice(name: 'RELEASE_SCOPE', choices: 'patch\nminor\nmajor', description: 'What is the release scope?')]
+                  input(message: 'Do you want to proceed with prod deployment?', ok: 'Yes', 
+                        parameters: [booleanParam(defaultValue: true, 
+                        description: 'pre-prod deployment  - http://139.59.27.4:81/', verify and click 'Yes' to proceed)])
                 echo 'Starting prod deployment'
                 sh '''sh deploy.sh prod rathneesh/devops-demo:${BUILD_NUMBER}
          '''
